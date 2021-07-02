@@ -1,0 +1,7 @@
+input,
+optgroup,
+select,
+textarea {
+  background-color: #ddd;
+  margin-left: 5px;
+}

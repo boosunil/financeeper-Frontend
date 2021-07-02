@@ -1,0 +1,55 @@
+<app-header></app-header>
+<br />
+<br />
+<br />
+<div
+  *ngIf="alert"
+  class="alert alert-success alert-dismissible fade show"
+  role="alert"
+>
+  Uploaded Successfully
+  <button
+    (click)="closeAlert()"
+    type="button"
+    class="close"
+    data-dismiss="alert"
+    aria-label="Close"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<br />
+<br />
+<a href="" class="btn btn-primary mb-2 mr-2 float-right"
+  >Download Example File</a
+>
+<br />
+<div class="d-flex justify-content-center">
+  <form
+    #fileInput
+    [formGroup]="importDataForm"
+    (submit)="submit(importDataForm.value)"
+    id="validate-createEventForm"
+    novalidate
+  >
+    <input
+      type="file"
+      #dataFile
+      id="datafile"
+      (change)="fileUpload($event.target.files)"
+      formControlName="datafile"
+    />
+
+    <button
+      type="submit"
+      class="btn btn-primary mr-2 btn-sm"
+      style="margin-left: 5px"
+    >
+      Submit
+    </button>
+
+    <button class="btn btn-danger btn-sm" (click)="clearSelection()">
+      Clear
+    </button>
+  </form>
+</div>

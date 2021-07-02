@@ -1,0 +1,40 @@
+<div class="d-flex justify-content-center align-items-center login-container">
+  <form class="login-form text-center" [formGroup]="registerForm">
+    <h1 class="mb-5 font-weight-light text-uppercase">Register</h1>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control rounded-pill form-control-lg"
+        placeholder="Email"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control rounded-pill form-control-lg"
+        placeholder="Username"
+        formControlName="username"
+      />
+    </div>
+    <div class="form-group">
+      <input
+        type="password"
+        class="form-control rounded-pill form-control-lg"
+        placeholder="Password"
+        formControlName="password"
+      />
+    </div>
+    <button
+      type="submit"
+      class="btn mt-4 rounded-pill btn-lg btn-custom btn-block text-uppercase"
+      (click)="registerUser()"
+    >
+      Register
+    </button>
+    <p class="mt-3 font-weight-normal">
+      Back to Login?
+      <a routerLink="/login"><strong>Login</strong></a>
+    </p>
+  </form>
+</div>
