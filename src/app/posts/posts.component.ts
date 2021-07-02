@@ -46,7 +46,7 @@ export class PostsComponent implements OnInit {
     if (this.allowedExtensions.indexOf(extension) === -1) {
       this.fileTypeNotAllowed = true;
       this.importDataForm.get("datafile").setErrors({ extension: true });
-    }
+    } 
   }
 
   submit(data) {
@@ -57,18 +57,19 @@ export class PostsComponent implements OnInit {
       console.log("form val", formValues);
       this.apiService.uploadJson(formValues).subscribe(
         (res) => {
-          // this.router.navigate(['/Charts'])
           this.clearSelection()
-          this.router.navigate(['/Charts'])
           this.alert = true;
           setTimeout(() => {
             this.alert = false;
+            this.router.navigate(['/user-posts'])
           }, 3000);
         },
         (error) => {
           //console.log("this.import_file: ", this.import_file) 
         }
       );
+    } else{
+      window.alert("Choose .json file")
     }
   }
 

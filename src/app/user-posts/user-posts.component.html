@@ -1,15 +1,15 @@
 <app-header></app-header>
 
 <br />
-<article class="media content-section">
-  <div class="media-body" *ngFor="let post of posts">
-    <div class="article-metadata">
-      <a class="mr-2" href="#">{{ post.username }}</a>
-      <small class="text-muted">{{ post.date_created }}</small>
+
+<br />
+<div class="container text-center pt-4" *ngFor="let post of posts">
+  <div class="row">
+    <div class="col-md-12">
+      <small>{{ post.username }}</small> <br />
+      <small>Created at {{ post.date_created | date: "dd/MM/yyyy" }}</small>
+      <p style="font-weight: bold">{{ post.title }}</p>
+      <p>{{ post.body }}</p>
     </div>
-    <h2>
-      <a class="article-title" href="#">{{ post.title }}</a>
-    </h2>
-    <p class="article-content">{{ post.body }}</p>
   </div>
-</article>
+</div>

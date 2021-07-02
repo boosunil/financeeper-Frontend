@@ -23,8 +23,8 @@ export class AuthService {
   }
 
   logout(){
-    localStorage.removeItem('token')
-    // return this.http.get(`${environment.apiUrl}/api/users/logout/`)
+    
+    return this.http.get(`${environment.apiUrl}/api/users/logout/`)
   }
 
   loggedIn() {
