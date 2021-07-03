@@ -28,11 +28,14 @@ export class HeaderComponent implements OnInit {
   logOut(){
     this.authService.logout().subscribe(
       (resp)=>{
-        console.log(resp)
-        localStorage.removeItem('token')
+        if (resp['data']){
         this.router.navigate(['/login'])
+        localStorage.removeItem('token')
+        }
       },(error) =>{
         console.log(error)
+        localStorage.removeItem('token')
+        this.router.navigate(['/login'])
       }
     )
   }
